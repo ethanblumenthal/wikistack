@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const { db } = require('./models/index');
 const wikiRouter = require('./routes/wiki');
-const userRouter = require('./routes/user');
+const userRouter = require('./routes/users');
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.use('/wiki', wikiRouter);
-app.use('/user', userRouter);
+app.use('/users', userRouter);
 
 db.authenticate().
 then(() => {
